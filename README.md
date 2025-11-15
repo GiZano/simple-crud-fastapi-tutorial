@@ -5,6 +5,7 @@
 
 <ol>
     <li><a href="#desc">Description</a></li>
+    <li><a href="#container">Containerization</a></li>
     <li><a href="#api">API</a></li>
     <li><a href="#quickS">QuickStart</a></li>
     <li><a href="#addNTips">Additional Tips</a></li>
@@ -12,11 +13,16 @@
 
 ## <p id="desc">Description</p>
 
-This is a simple application I developed to learn how fastAPI works and how to use it in my future projects, alongside a database to retrieve and store data (in this case, SQLModel)
+This is a simple containerized application I developed to learn how fastAPI works and how to use it in my future projects, alongside a database to retrieve and store data (in this case, SQLModel)
 
 ### Tutorial
 
 To develop this project, I followed this <a href="https://www.youtube.com/watch?v=k5abZLzsQc0">tutorial</a>
+
+## <p id="container">Containerization</p>
+
+To make this application easier to be deployed and actually executed, it has been wrapped inside a docker container, which permits to run the application and expose the service by simply running the container image, without the need to download and install all the dependencies needed.
+
 
 ## <p id="api">API</p>
 

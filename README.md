@@ -148,14 +148,14 @@ To develop this project, I followed this <a href="https://www.youtube.com/watch?
 
 ---
 
-### Delete Zone
+### Read Zone
 
 
 
 
 | Method | URL |
 |--------|-----|
-| DELETE | zones/{id} |
+| DELETE | /zones/{id} |
 
 #### Parameters
 | Name | In | Description | Required |

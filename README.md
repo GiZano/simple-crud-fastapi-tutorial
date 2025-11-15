@@ -55,13 +55,6 @@ The data we save inside the project looks like:
     </tbody>
 </table>
 
-Zone
-- zone_id
-- name
-- region
-- created_at
-- istance_id
-
 ## <p id="container">Containerization</p>
 
 To make this application easier to be deployed and actually executed, it has been wrapped inside a docker container, which permits to run the application and expose the service by simply running the container image, without the need to download and install all the dependencies needed.

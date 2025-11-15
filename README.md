@@ -335,5 +335,3 @@ In terminal:
 ```bash
 fastapi dev main.py
 ```
-
-**Full Changelog**: https://github.com/GiZano/simple-fastapi-application/compare/v1.0.0...v2.0.0

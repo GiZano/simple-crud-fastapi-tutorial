@@ -19,16 +19,37 @@ This is a simple containerized application I developed to learn how fastAPI work
 
 To develop this project, I followed this <a href="https://www.youtube.com/watch?v=k5abZLzsQc0">tutorial</a>
 
+### Data Schema
+
+The data we save inside the project looks like:
+
+Zone
+- zone_id
+- name
+- regione
+- created_at
+- istance_id
+
 ## <p id="container">Containerization</p>
 
 To make this application easier to be deployed and actually executed, it has been wrapped inside a docker container, which permits to run the application and expose the service by simply running the container image, without the need to download and install all the dependencies needed.
+
+### Scalability
+
+Thanks to the nginx service, we made this project scalable, as we can now start more than one web application at once with the command:
+
+```bash
+docker-compose up -d --scale fastapi-app=3
+```
+
+- (This command will start 3 istances)
 
 ### 🐳 Docker Image
 
 The pre-built Docker image is available on GitHub Container Registry:
 
 ```bash
-docker pull ghcr.io/gizano/simple-fastapi-application:v1.0.0
+docker pull ghcr.io/gizano/simple-fastapi-application:v2.1.0
 ```
 
 ### 📦  Image URL: https://github.com/users/GiZano/packages/container/package/simple-fastapi-application
@@ -89,7 +110,7 @@ docker pull ghcr.io/gizano/simple-fastapi-application:v1.0.0
 |------|----|-------------|----------|
 | id | path |  | Required |
 
-##### Response (200)
+##### Response (201)
 | Field | Type | Description |
 |-------|------|-------------|
 | data | object |  |
@@ -186,6 +207,25 @@ docker pull ghcr.io/gizano/simple-fastapi-application:v1.0.0
 | Field | Type | Description |
 |-------|------|-------------|
 | detail | array |  |
+
+---
+
+### Health Check
+
+
+
+
+| Method | URL |
+|--------|-----|
+| GET | /health |
+
+#### Parameters
+| Name | In | Description | Required |
+|------|----|-------------|----------|
+
+##### Response (200)
+| Field | Type | Description |
+|-------|------|-------------|
 
 ---
 

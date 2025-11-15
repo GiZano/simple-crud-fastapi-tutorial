@@ -75,7 +75,7 @@ app = FastAPI(root_path="/api/v1", lifespan=lifespan)
 # name.method(PATH)
 @app.get("/")
 async def root():
-    hostname = os.getenv('HOSTNAME') # container name
+    hostname = socket.gethostname() # container name
     return {
         "message": "Hello World!",
         "istance": hostname,
@@ -94,7 +94,7 @@ async def read_zones(session: SessionDep):
     data = session.exec(select(Zone)).all()
     return {
         "data": data,
-        "instance": os.getenv('HOSTNAME'),
+        "instance": socket.gethostname(),
         "total": len(data)
     }
 
@@ -111,13 +111,13 @@ async def read_zone(id: int, session: SessionDep):
 async def create_zone(zone: ZoneCreate, session: SessionDep):
     # validate our zone against the actual table class
     db_zone = Zone.model_validate(zone)
-    db_zone.instance_id = os.getenv('HOSTNAME')
+    db_zone.instance_id = socket.gethostname()
     session.add(db_zone)
     session.commit()
     session.refresh(db_zone)
     return {
         "data": db_zone,
-        "created_by": os.getenv('HOSTNAME')
+        "created_by": socket.gethostname()
     }
 
 # zone updater
@@ -147,6 +147,6 @@ async def read_zone(id: int, session: SessionDep):
 async def health_check():
     return {
         "status": "healthy",
-        "instance": os.getenv('HOSTNAME'),
+        "instance": socket.gethostname(),
         "timestamp": datetime.now(timezone.utc).isoformat()
     }
